@@ -26,11 +26,11 @@ struct GameByDate: Codable, Identifiable {
     var id = UUID()
     
     var homeTeam: String { didSet { homeTeamLogo = setTeamLogo(from: homeTeam)} }
-    var homeTeamLogo: String
+    var homeTeamLogo: String = ""
     let homeTeamScore: Int?
     
     var awayTeam: String { didSet { awayTeamLogo = setTeamLogo(from: awayTeam)} }
-    var awayTeamLogo: String
+    var awayTeamLogo: String = ""
     let awayTeamScore: Int?
     
     let status: String
