@@ -8,17 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		637772C427149BF200E417B3 /* NBA_StatsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772C327149BF200E417B3 /* NBA_StatsApp.swift */; };
-		637772C627149BF200E417B3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772C527149BF200E417B3 /* ContentView.swift */; };
+		637772C627149BF200E417B3 /* ScoresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772C527149BF200E417B3 /* ScoresView.swift */; };
 		637772C827149BF300E417B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637772C727149BF300E417B3 /* Assets.xcassets */; };
 		637772CB27149BF300E417B3 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 637772CA27149BF300E417B3 /* Preview Assets.xcassets */; };
+		637772D72714A79000E417B3 /* StandingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772D62714A79000E417B3 /* StandingsView.swift */; };
+		637772D92714A7B800E417B3 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772D82714A7B800E417B3 /* SettingsView.swift */; };
+		637772DB2714A7E500E417B3 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772DA2714A7E500E417B3 /* TabBarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		637772C027149BF200E417B3 /* NBA-Stats.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "NBA-Stats.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		637772C327149BF200E417B3 /* NBA_StatsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NBA_StatsApp.swift; sourceTree = "<group>"; };
-		637772C527149BF200E417B3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		637772C527149BF200E417B3 /* ScoresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresView.swift; sourceTree = "<group>"; };
 		637772C727149BF300E417B3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		637772CA27149BF300E417B3 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		637772D62714A79000E417B3 /* StandingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsView.swift; sourceTree = "<group>"; };
+		637772D82714A7B800E417B3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		637772DA2714A7E500E417B3 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,7 +58,11 @@
 			isa = PBXGroup;
 			children = (
 				637772C327149BF200E417B3 /* NBA_StatsApp.swift */,
-				637772C527149BF200E417B3 /* ContentView.swift */,
+				637772D12714A0E600E417B3 /* Model */,
+				637772D22714A0F200E417B3 /* View */,
+				637772D32714A0FE00E417B3 /* View Model */,
+				637772D42714A2B600E417B3 /* Networking */,
+				637772D52714A2C800E417B3 /* Navigator */,
 				637772C727149BF300E417B3 /* Assets.xcassets */,
 				637772C927149BF300E417B3 /* Preview Content */,
 			);
@@ -65,6 +75,45 @@
 				637772CA27149BF300E417B3 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		637772D12714A0E600E417B3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		637772D22714A0F200E417B3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				637772C527149BF200E417B3 /* ScoresView.swift */,
+				637772D62714A79000E417B3 /* StandingsView.swift */,
+				637772D82714A7B800E417B3 /* SettingsView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		637772D32714A0FE00E417B3 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		637772D42714A2B600E417B3 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		637772D52714A2C800E417B3 /* Navigator */ = {
+			isa = PBXGroup;
+			children = (
+				637772DA2714A7E500E417B3 /* TabBarView.swift */,
+			);
+			path = Navigator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,8 +186,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				637772C627149BF200E417B3 /* ContentView.swift in Sources */,
+				637772C627149BF200E417B3 /* ScoresView.swift in Sources */,
+				637772D92714A7B800E417B3 /* SettingsView.swift in Sources */,
 				637772C427149BF200E417B3 /* NBA_StatsApp.swift in Sources */,
+				637772DB2714A7E500E417B3 /* TabBarView.swift in Sources */,
+				637772D72714A79000E417B3 /* StandingsView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
