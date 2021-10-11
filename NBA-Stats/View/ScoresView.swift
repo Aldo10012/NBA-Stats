@@ -24,8 +24,14 @@ struct ScoresView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                Text("Scores View!")
-                    .padding()
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        ForEach(viewModel.games) { game in
+                            ScoresCardView(game: game)
+                        }
+                    }
+                }
+                
                 Spacer()
             }
             .navigationTitle("Games")
