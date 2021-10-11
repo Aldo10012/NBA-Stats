@@ -11,7 +11,8 @@ import SwiftUI
 struct NBA_StatsApp: App {
     var body: some Scene {
         WindowGroup {
-            ScoresCardView(game: tempGame)
+            TabBarView()
+//            ScoresCardView(game: tempGame)
         }
     }
 }
