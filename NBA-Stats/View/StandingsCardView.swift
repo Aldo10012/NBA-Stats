@@ -48,6 +48,9 @@ struct ScoresCardView: View {
         .background(Color.white)
         .cornerRadius(20)
         .shadow(color: .gray, radius: 8, x: 4, y: 4)
+        .onAppear {
+            print(game)
+        }
         
     }
 }

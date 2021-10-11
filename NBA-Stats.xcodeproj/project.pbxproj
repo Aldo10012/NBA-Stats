@@ -18,6 +18,9 @@
 		637772E52714C4BD00E417B3 /* StandingsCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772E42714C4BD00E417B3 /* StandingsCardView.swift */; };
 		637772E82714C8D500E417B3 /* String-ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772E72714C8D500E417B3 /* String-ext.swift */; };
 		637772EA2714C93D00E417B3 /* TempData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772E92714C93D00E417B3 /* TempData.swift */; };
+		637772EC2714CEE400E417B3 /* ScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772EB2714CEE400E417B3 /* ScoresViewModel.swift */; };
+		637772EE2714D08200E417B3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772ED2714D08200E417B3 /* Date.swift */; };
+		637772F02714D12200E417B3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772EF2714D12200E417B3 /* Error.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +36,9 @@
 		637772E42714C4BD00E417B3 /* StandingsCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCardView.swift; sourceTree = "<group>"; };
 		637772E72714C8D500E417B3 /* String-ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-ext.swift"; sourceTree = "<group>"; };
 		637772E92714C93D00E417B3 /* TempData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TempData.swift; sourceTree = "<group>"; };
+		637772EB2714CEE400E417B3 /* ScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewModel.swift; sourceTree = "<group>"; };
+		637772ED2714D08200E417B3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		637772EF2714D12200E417B3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +115,7 @@
 		637772D32714A0FE00E417B3 /* View Model */ = {
 			isa = PBXGroup;
 			children = (
+				637772EB2714CEE400E417B3 /* ScoresViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -132,6 +139,8 @@
 			isa = PBXGroup;
 			children = (
 				637772E72714C8D500E417B3 /* String-ext.swift */,
+				637772ED2714D08200E417B3 /* Date.swift */,
+				637772EF2714D12200E417B3 /* Error.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -209,10 +218,13 @@
 				637772EA2714C93D00E417B3 /* TempData.swift in Sources */,
 				637772E82714C8D500E417B3 /* String-ext.swift in Sources */,
 				637772C627149BF200E417B3 /* ScoresView.swift in Sources */,
+				637772EC2714CEE400E417B3 /* ScoresViewModel.swift in Sources */,
+				637772F02714D12200E417B3 /* Error.swift in Sources */,
 				637772D92714A7B800E417B3 /* SettingsView.swift in Sources */,
 				637772E52714C4BD00E417B3 /* StandingsCardView.swift in Sources */,
 				637772C427149BF200E417B3 /* NBA_StatsApp.swift in Sources */,
 				637772DB2714A7E500E417B3 /* TabBarView.swift in Sources */,
+				637772EE2714D08200E417B3 /* Date.swift in Sources */,
 				637772DD2714ABF700E417B3 /* GameByDate.swift in Sources */,
 				637772D72714A79000E417B3 /* StandingsView.swift in Sources */,
 			);
