@@ -21,6 +21,7 @@
 		637772EC2714CEE400E417B3 /* ScoresViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772EB2714CEE400E417B3 /* ScoresViewModel.swift */; };
 		637772EE2714D08200E417B3 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772ED2714D08200E417B3 /* Date.swift */; };
 		637772F02714D12200E417B3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772EF2714D12200E417B3 /* Error.swift */; };
+		637772F22714F39E00E417B3 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F12714F39E00E417B3 /* Standings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		637772EB2714CEE400E417B3 /* ScoresViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoresViewModel.swift; sourceTree = "<group>"; };
 		637772ED2714D08200E417B3 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		637772EF2714D12200E417B3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
+		637772F12714F39E00E417B3 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				637772DC2714ABF700E417B3 /* GameByDate.swift */,
+				637772F12714F39E00E417B3 /* Standings.swift */,
 				637772E92714C93D00E417B3 /* TempData.swift */,
 			);
 			path = Model;
@@ -104,9 +107,8 @@
 		637772D22714A0F200E417B3 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				637772C527149BF200E417B3 /* ScoresView.swift */,
-				637772E42714C4BD00E417B3 /* ScoresCardView.swift */,
-				637772D62714A79000E417B3 /* StandingsView.swift */,
+				637772F32714F50000E417B3 /* Scores */,
+				637772F42714F50B00E417B3 /* Standings */,
 				637772D82714A7B800E417B3 /* SettingsView.swift */,
 			);
 			path = View;
@@ -143,6 +145,23 @@
 				637772EF2714D12200E417B3 /* Error.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		637772F32714F50000E417B3 /* Scores */ = {
+			isa = PBXGroup;
+			children = (
+				637772C527149BF200E417B3 /* ScoresView.swift */,
+				637772E42714C4BD00E417B3 /* ScoresCardView.swift */,
+			);
+			path = Scores;
+			sourceTree = "<group>";
+		};
+		637772F42714F50B00E417B3 /* Standings */ = {
+			isa = PBXGroup;
+			children = (
+				637772D62714A79000E417B3 /* StandingsView.swift */,
+			);
+			path = Standings;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -225,6 +244,7 @@
 				637772C427149BF200E417B3 /* NBA_StatsApp.swift in Sources */,
 				637772DB2714A7E500E417B3 /* TabBarView.swift in Sources */,
 				637772EE2714D08200E417B3 /* Date.swift in Sources */,
+				637772F22714F39E00E417B3 /* Standings.swift in Sources */,
 				637772DD2714ABF700E417B3 /* GameByDate.swift in Sources */,
 				637772D72714A79000E417B3 /* StandingsView.swift in Sources */,
 			);

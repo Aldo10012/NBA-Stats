@@ -24,6 +24,8 @@ struct ScoresView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
+                
+                
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         ForEach(viewModel.games) { game in
@@ -37,6 +39,41 @@ struct ScoresView: View {
             .navigationTitle("Games")
         }
     }
+    
+    func updateView() {
+        switch selectedDate {
+        case .yesturday:
+            viewModel.getGamesByDate(yesterday) { result in
+                switch result {
+                case let .success(games):
+                    self.viewModel.games = games
+                case let .failure(error):
+                    print(error)
+                }
+            }
+            
+        case .today:
+            viewModel.getGamesByDate(today) { result in
+                switch result {
+                case let .success(games):
+                    self.viewModel.games = games
+                case let .failure(error):
+                    print(error)
+                }
+            }
+            
+        case .tomorrow:
+            viewModel.getGamesByDate(tomorrow) { result in
+                switch result {
+                case let .success(games):
+                    self.viewModel.games = games
+                case let .failure(error):
+                    print(error)
+                }
+            }
+        }
+    }
+    
 }
 
 struct ContentView_Previews: PreviewProvider {

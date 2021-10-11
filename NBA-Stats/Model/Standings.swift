@@ -1,5 +1,5 @@
 //
-//  GameByDate.swift
+//  Standings.swift
 //  NBA-Stats
 //
 //  Created by Alberto Dominguez on 10/11/21.
@@ -10,43 +10,29 @@ import Foundation
 /*
 What is needed?
 
-Home team Name
-Home team Logo
-Home team score (optional)
-
-Away team Name
-Away team Logo
-Away team score (optional)
-
-Status
+Taem Name
+Team Logo
+Team winnings
+Team losses
 */
 
-struct GameByDate: Codable, Identifiable {
-    
+struct Standing: Codable, Identifiable {
     var id = UUID()
     
-    var homeTeam: String { didSet { homeTeamLogo = setTeamLogo(from: homeTeam)} }
-    var homeTeamLogo: String = ""
-    let homeTeamScore: Int?
-    
-    var awayTeam: String { didSet { awayTeamLogo = setTeamLogo(from: awayTeam)} }
-    var awayTeamLogo: String = ""
-    let awayTeamScore: Int?
-    
-    let status: String
+    var name: String  { didSet {logo = setTeamLogo(from: name)} }
+    var logo: String
+    let wins: Int
+    let losses: Int
     
     enum CodingKeys: String, CodingKey {
-        case homeTeamLogo, awayTeamLogo
-        case homeTeam       = "HomeTeam"
-        case homeTeamScore  = "HomeTeamScore"
-        case awayTeam       = "AwayTeam"
-        case awayTeamScore  = "AwayTeamScore"
-        case status         = "Status"
+        case logo
+        case name = "Key"
+        case wins = "Wins"
+        case losses = "Losses"
     }
-    
 }
 
-extension GameByDate {
+extension Standing {
     
     /// return the team logo url based on the team name
     func setTeamLogo(from teamName: String) -> String {
