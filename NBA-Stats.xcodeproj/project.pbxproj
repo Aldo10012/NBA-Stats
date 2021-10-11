@@ -23,6 +23,7 @@
 		637772F02714D12200E417B3 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772EF2714D12200E417B3 /* Error.swift */; };
 		637772F22714F39E00E417B3 /* Standings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F12714F39E00E417B3 /* Standings.swift */; };
 		637772F62714F93500E417B3 /* StandingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F52714F93500E417B3 /* StandingsCellView.swift */; };
+		637772F82714FD8700E417B3 /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F72714FD8700E417B3 /* StandingsViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +44,7 @@
 		637772EF2714D12200E417B3 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
 		637772F12714F39E00E417B3 /* Standings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Standings.swift; sourceTree = "<group>"; };
 		637772F52714F93500E417B3 /* StandingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellView.swift; sourceTree = "<group>"; };
+		637772F72714FD8700E417B3 /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				637772EB2714CEE400E417B3 /* ScoresViewModel.swift */,
+				637772F72714FD8700E417B3 /* StandingsViewModel.swift */,
 			);
 			path = "View Model";
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				637772EA2714C93D00E417B3 /* TempData.swift in Sources */,
 				637772E82714C8D500E417B3 /* String-ext.swift in Sources */,
 				637772F62714F93500E417B3 /* StandingsCellView.swift in Sources */,
+				637772F82714FD8700E417B3 /* StandingsViewModel.swift in Sources */,
 				637772C627149BF200E417B3 /* ScoresView.swift in Sources */,
 				637772EC2714CEE400E417B3 /* ScoresViewModel.swift in Sources */,
 				637772F02714D12200E417B3 /* Error.swift in Sources */,

@@ -23,12 +23,14 @@ struct Standing: Codable, Identifiable {
     var logo: String = ""
     let wins: Int
     let losses: Int
+    let conference: String
     
     enum CodingKeys: String, CodingKey {
         case logo
         case name = "Key"
         case wins = "Wins"
         case losses = "Losses"
+        case conference = "Conference"
     }
 }
 

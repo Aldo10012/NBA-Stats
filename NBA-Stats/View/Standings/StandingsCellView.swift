@@ -42,4 +42,4 @@ struct StandingsCellView_Previews: PreviewProvider {
     }
 }
 
-let sampleStanding = Standing(name: "NY", wins: 20, losses: 25)
+let sampleStanding = Standing(name: "NY", wins: 20, losses: 25, conference: "Eastern")

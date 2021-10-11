@@ -9,6 +9,7 @@ import SwiftUI
 
 struct StandingsView: View {
     
+    @ObservedObject var viewModel = StandingsViewModel()
     @State private var selectedConference: SelectedConference = .western 
     
     var body: some View {
@@ -23,6 +24,14 @@ struct StandingsView: View {
                 .padding()
                 
                 Text(selectedConference.rawValue)
+                
+                ScrollView {
+                    LazyVStack(spacing: 20) {
+                        ForEach(viewModel.westernStandings) { standing in
+                            StandingsCellView(standing: standing)
+                        }
+                    }
+                }
                 
                 Spacer()
             }

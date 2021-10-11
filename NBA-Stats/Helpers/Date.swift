@@ -12,6 +12,9 @@ let yesterday = getDateAsString(.yesterday)
 let today = getDateAsString(.today)
 let tomorrow = getDateAsString(.tomorrow)
 
+let thisYear = getYearAsString()
+let nextYear = String((Int(thisYear) ?? 2020) + 1)
+
 enum DateType{
   case yesterday
   case today
@@ -32,7 +35,16 @@ func getDateAsString(_ dateType: DateType) -> String {
   let dateAsString = dateFormatter.string(from: date)
 
   return dateAsString
+}
 
+func getYearAsString() -> String{
+    var date = Date()
+    
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "YYYY"
+    let dateAsString = dateFormatter.string(from: date)
+
+    return dateAsString
 }
 
 extension Date {
