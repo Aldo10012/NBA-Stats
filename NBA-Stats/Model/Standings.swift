@@ -20,7 +20,7 @@ struct Standing: Codable, Identifiable {
     var id = UUID()
     
     var name: String  { didSet {logo = setTeamLogo(from: name)} }
-    var logo: String
+    var logo: String = ""
     let wins: Int
     let losses: Int
     
