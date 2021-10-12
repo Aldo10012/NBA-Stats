@@ -23,6 +23,18 @@ struct StandingsView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                                 
+                HStack() {
+                    Text("#")
+                        .padding(.leading, 20)
+                    Text("Team")
+                    Spacer()
+                    Text("W  -  L")
+                        .padding(.trailing, 20)
+                        
+                }
+                .foregroundColor(Color.gray)
+                .padding(.horizontal)
+                
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         switch selectedConference {

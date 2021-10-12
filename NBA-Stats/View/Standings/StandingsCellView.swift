@@ -13,13 +13,13 @@ struct StandingsCellView: View {
     
     var body: some View {
         HStack {
-            Image(standing.name)
+            Image(standing.key)
                 .resizable()
                 .frame(width: 40, height: 40)
 //                .background(Color(UIColor.lightGray))
                 .padding(.leading)
                 
-            Text(standing.name)
+            Text("\(standing.city) \(standing.name)")
                 .padding()
             Spacer()
             Text("\(standing.wins) - \(standing.losses)")
@@ -42,4 +42,4 @@ struct StandingsCellView_Previews: PreviewProvider {
     }
 }
 
-let sampleStanding = Standing(name: "NY", wins: 20, losses: 25, conference: "Eastern")
+let sampleStanding = Standing(key: "NY", city: "New York", name: "Knicks", wins: 20, losses: 25, conference: "Eastern")

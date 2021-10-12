@@ -19,7 +19,10 @@ Team losses
 struct Standing: Codable, Identifiable {
     var id = UUID()
     
-    var name: String  { didSet {logo = setTeamLogo(from: name)} }
+    var key: String  { didSet {logo = setTeamLogo(from: key)} }
+    let city: String
+    let name: String
+    
     var logo: String = ""
     let wins: Int
     let losses: Int
@@ -27,7 +30,9 @@ struct Standing: Codable, Identifiable {
     
     enum CodingKeys: String, CodingKey {
 //        case logo
-        case name = "Key"
+        case key = "Key"
+        case city = "City"
+        case name = "Name"
         case wins = "Wins"
         case losses = "Losses"
         case conference = "Conference"
