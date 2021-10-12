@@ -26,9 +26,9 @@ struct StandingsCellView: View {
                 .padding()
         }
         .frame(height: 60)
-        .background(Color.white)
+        .background(Color(UIColor.systemBackground))
         .cornerRadius(8)
-        .shadow(color: Color(UIColor.lightGray), radius: 8, x: 4, y: 4)
+        .shadow(color: Color(UIColor.lightGray), radius: 4, x: 2, y: 0)
         .padding(.horizontal)
         .onAppear {
             print(standing)
