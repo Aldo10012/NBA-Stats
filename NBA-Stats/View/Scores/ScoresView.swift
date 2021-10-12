@@ -24,9 +24,6 @@ struct ScoresView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                Text(selectedDate.rawValue)
-                
-                
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         switch selectedDate {

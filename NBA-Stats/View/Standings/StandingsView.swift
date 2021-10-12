@@ -22,15 +22,20 @@ struct StandingsView: View {
                 }
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
-                
-                Text(selectedConference.rawValue)
-                
+                                
                 ScrollView {
                     LazyVStack(spacing: 20) {
-                        ForEach(viewModel.westernStandings) { standing in
-                            StandingsCellView(standing: standing)
+                        switch selectedConference {
+                        case .western:
+                            ForEach(viewModel.westernStandings) { standing in
+                                StandingsCellView(standing: standing)
+                            }
+                        case .eastern:
+                            ForEach(viewModel.easternStandings) { standing in
+                                StandingsCellView(standing: standing)
+                            }
                         }
-                    }
+                    }.padding(.top, 10)
                 }
                 
                 Spacer()

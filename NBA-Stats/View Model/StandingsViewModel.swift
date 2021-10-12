@@ -18,15 +18,8 @@ class StandingsViewModel: ObservableObject {
     init() {
         getStandings(Int(thisYear)!) { result in
             switch result {
-            case let .success(allStandings):                
-                for standing in allStandings {
-                    if standing.conference == "Eastern" {
-                        self.easternStandings.append(standing)
-                    } else {
-                        self.westernStandings.append(standing)
-                    }
-                }
-                
+            case let .success(allStandings):
+                print("added standings")
             case let .failure(error):
                 print(error)
             }
