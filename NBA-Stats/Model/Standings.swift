@@ -26,7 +26,7 @@ struct Standing: Codable, Identifiable {
     let conference: String
     
     enum CodingKeys: String, CodingKey {
-        case logo
+//        case logo
         case name = "Key"
         case wins = "Wins"
         case losses = "Losses"

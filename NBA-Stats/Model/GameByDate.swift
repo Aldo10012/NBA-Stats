@@ -36,7 +36,7 @@ struct GameByDate: Codable, Identifiable {
     let status: String
     
     enum CodingKeys: String, CodingKey {
-        case homeTeamLogo, awayTeamLogo
+//        case homeTeamLogo, awayTeamLogo
         case homeTeam       = "HomeTeam"
         case homeTeamScore  = "HomeTeamScore"
         case awayTeam       = "AwayTeam"
