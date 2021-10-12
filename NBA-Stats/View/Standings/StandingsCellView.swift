@@ -13,10 +13,10 @@ struct StandingsCellView: View {
     
     var body: some View {
         HStack {
-            Image(uiImage: standing.logo.load())
+            Image(standing.name)
                 .resizable()
                 .frame(width: 40, height: 40)
-                .background(Color(UIColor.lightGray))
+//                .background(Color(UIColor.lightGray))
                 .padding(.leading)
                 
             Text(standing.name)
