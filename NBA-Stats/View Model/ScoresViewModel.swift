@@ -8,8 +8,6 @@
 import Foundation
 
 class ScoresViewModel: ObservableObject {
-    @Published var games = [GameByDate]()
-
     @Published var yesturdaysGames = [GameByDate]()
     @Published var todaysGames = [GameByDate]()
     @Published var tomorrowsGames = [GameByDate]()
@@ -19,19 +17,10 @@ class ScoresViewModel: ObservableObject {
     let urlSession = URLSession.shared
     
     init() {
-        getGamesByDate(today) { result in
-            switch result {
-            case let .success(games):
-                self.games = games
-            case let .failure(error):
-                print(error)
-            }
-        }
-        
         getGamesByDate(yesterday) { result in
             switch result {
             case let .success(games):
-                self.yesturdaysGames = games
+                print("Set yesturdays games")
             case let .failure(error):
                 print(error)
             }
@@ -40,7 +29,7 @@ class ScoresViewModel: ObservableObject {
         getGamesByDate(today) { result in
             switch result {
             case let .success(games):
-                self.todaysGames = games
+                print("Set todays games")
             case let .failure(error):
                 print(error)
             }
@@ -48,7 +37,7 @@ class ScoresViewModel: ObservableObject {
         getGamesByDate(tomorrow) { result in
             switch result {
             case let .success(games):
-                self.tomorrowsGames = games
+                print("Set tomorrows games")
             case let .failure(error):
                 print(error)
             }
@@ -74,7 +63,6 @@ class ScoresViewModel: ObservableObject {
                 let games = try JSONDecoder().decode([GameByDate].self, from: data)
                 
                 DispatchQueue.main.sync {
-                    self.games = games
                     if date == yesterday{
                         self.yesturdaysGames = games
                     }
