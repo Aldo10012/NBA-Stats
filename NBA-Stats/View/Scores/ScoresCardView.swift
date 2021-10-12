@@ -13,7 +13,7 @@ struct ScoresCardView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            HStack(spacing: 40) {
+            HStack(spacing: 35) {
                 InfoColumnView(logo: game.homeTeamLogo,
                               name: game.homeTeam,
                               score: game.homeTeamScore
@@ -30,7 +30,7 @@ struct ScoresCardView: View {
             Text(game.status)
         }
         .padding(.vertical, 20)
-        .padding(.horizontal, 50)
+        .padding(.horizontal, 35)
         .background(Color.white)
         .cornerRadius(20)
         .shadow(color: .gray, radius: 8, x: 4, y: 4)
@@ -56,11 +56,11 @@ struct InfoColumnView: View {
     
     var body: some View {
         VStack(spacing: 15) {
-            Image(uiImage: logo.load())
+            Image(name)
                 .resizable()
-                .frame(width: 80, height: 100)
+                .frame(width: 110, height: 110)
                 .aspectRatio(contentMode: .fill)
-                .background(Color(UIColor.lightGray))
+//                .background(Color(UIColor.lightGray))
             Text(name)
             if let score = score {
                 Text(String( score ?? 0 ))
