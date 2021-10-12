@@ -24,6 +24,7 @@ struct ScoresView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
+                Text(selectedDate.rawValue)
                 
                 
                 ScrollView {

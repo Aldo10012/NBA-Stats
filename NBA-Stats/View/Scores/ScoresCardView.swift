@@ -13,34 +13,18 @@ struct ScoresCardView: View {
     
     var body: some View {
         VStack(spacing: 20) {
-            HStack(spacing: 25) {
-                VStack(spacing: 15) {
-                    Image(uiImage: game.homeTeamLogo.load())
-                        .resizable()
-                        .frame(width: 80, height: 100)
-                        .aspectRatio(contentMode: .fill)
-                        .background(Color(UIColor.lightGray))
-                    Text(game.homeTeam)
-                    Text(String( game.homeTeamScore ?? 0 ))
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .offset(y: -15)
-                }
+            HStack(spacing: 40) {
+                InfoColumnView(logo: game.homeTeamLogo,
+                              name: game.homeTeam,
+                              score: game.homeTeamScore
+                )
                 
                 Text("VS")
                 
-                VStack(spacing: 15) {
-                    Image(uiImage: game.awayTeamLogo.load())
-                        .resizable()
-                        .frame(width: 80, height: 100)
-                        .aspectRatio(contentMode: .fill)
-                        .background(Color(UIColor.lightGray))
-                    Text(game.awayTeam)
-                    Text(String( game.awayTeamScore ?? 0 ))
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .offset(y: -15)
-                }
+                InfoColumnView(logo: game.awayTeamLogo,
+                              name: game.awayTeam,
+                              score: game.awayTeamScore
+                )
             }
             
             Text(game.status)
@@ -64,9 +48,31 @@ struct ScoresCardView_Previews: PreviewProvider {
 }
 
 
-
-
-
-
-
-
+struct InfoColumnView: View {
+    
+    @State var logo: String
+    @State var name: String
+    @State var score: Int?
+    
+    var body: some View {
+        VStack(spacing: 15) {
+            Image(uiImage: logo.load())
+                .resizable()
+                .frame(width: 80, height: 100)
+                .aspectRatio(contentMode: .fill)
+                .background(Color(UIColor.lightGray))
+            Text(name)
+            if let score = score {
+                Text(String( score ?? 0 ))
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .offset(y: -15)
+            } else {
+                Text("-")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .offset(y: -15)
+            }
+        }
+    }
+}
