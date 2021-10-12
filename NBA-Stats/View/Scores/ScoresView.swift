@@ -29,10 +29,21 @@ struct ScoresView: View {
                 
                 ScrollView {
                     LazyVStack(spacing: 20) {
-                        ForEach(viewModel.games) { game in
-                            ScoresCardView(game: game)
+                        switch selectedDate {
+                        case .yesturday:
+                            ForEach(viewModel.yesturdaysGames) { game in
+                                ScoresCardView(game: game)
+                            }
+                        case .today:
+                            ForEach(viewModel.todaysGames) { game in
+                                ScoresCardView(game: game)
+                            }
+                        case .tomorrow:
+                            ForEach(viewModel.tomorrowsGames) { game in
+                                ScoresCardView(game: game)
+                            }
                         }
-                    }
+                    }.padding(.top, 10)
                 }
                 
                 Spacer()
@@ -40,41 +51,6 @@ struct ScoresView: View {
             .navigationTitle("Games")
         }
     }
-    
-    func updateView() {
-        switch selectedDate {
-        case .yesturday:
-            viewModel.getGamesByDate(yesterday) { result in
-                switch result {
-                case let .success(games):
-                    self.viewModel.games = games
-                case let .failure(error):
-                    print(error)
-                }
-            }
-            
-        case .today:
-            viewModel.getGamesByDate(today) { result in
-                switch result {
-                case let .success(games):
-                    self.viewModel.games = games
-                case let .failure(error):
-                    print(error)
-                }
-            }
-            
-        case .tomorrow:
-            viewModel.getGamesByDate(tomorrow) { result in
-                switch result {
-                case let .success(games):
-                    self.viewModel.games = games
-                case let .failure(error):
-                    print(error)
-                }
-            }
-        }
-    }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {
