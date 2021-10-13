@@ -25,6 +25,7 @@
 		637772F62714F93500E417B3 /* StandingsCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F52714F93500E417B3 /* StandingsCellView.swift */; };
 		637772F82714FD8700E417B3 /* StandingsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637772F72714FD8700E417B3 /* StandingsViewModel.swift */; };
 		63F87AF927174641001EF662 /* FavoriteTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F87AF827174641001EF662 /* FavoriteTeamViewModel.swift */; };
+		63F87AFB27175659001EF662 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F87AFA27175659001EF662 /* Team.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,7 @@
 		637772F52714F93500E417B3 /* StandingsCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsCellView.swift; sourceTree = "<group>"; };
 		637772F72714FD8700E417B3 /* StandingsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StandingsViewModel.swift; sourceTree = "<group>"; };
 		63F87AF827174641001EF662 /* FavoriteTeamViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteTeamViewModel.swift; sourceTree = "<group>"; };
+		63F87AFA27175659001EF662 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				637772DC2714ABF700E417B3 /* GameByDate.swift */,
 				637772F12714F39E00E417B3 /* Standings.swift */,
+				63F87AFA27175659001EF662 /* Team.swift */,
 				637772E92714C93D00E417B3 /* TempData.swift */,
 			);
 			path = Model;
@@ -259,6 +262,7 @@
 				637772F22714F39E00E417B3 /* Standings.swift in Sources */,
 				637772DD2714ABF700E417B3 /* GameByDate.swift in Sources */,
 				637772D72714A79000E417B3 /* StandingsView.swift in Sources */,
+				63F87AFB27175659001EF662 /* Team.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
