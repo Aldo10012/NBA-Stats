@@ -31,7 +31,7 @@ struct StandingsCellView: View {
         .shadow(color: Color(UIColor.lightGray), radius: 4, x: 2, y: 0)
         .padding(.horizontal)
         .onAppear {
-            print(standing)
+//            print(standing)
         }
     }
 }

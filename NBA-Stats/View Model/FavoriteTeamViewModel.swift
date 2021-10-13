@@ -9,7 +9,7 @@ import UIKit
 
 class FavoriteTeamViewModel: ObservableObject {
     @Published var allTeams = [Team]()
-    @Published var favoriteTeam: Team? = nil
+    @Published var favoriteTeam: Team = Team(key: "WAS", city: "Washington", name: "Wizards")
         
     let baseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
     let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"

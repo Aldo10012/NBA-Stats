@@ -9,8 +9,8 @@ import SwiftUI
 
 struct SettingsView: View {
     
-    @ObservedObject var viewModel = FavoriteTeamViewModel()
-    @State private var favorite = Team(key: "WAS", city: "Washington", name: "Wizards")
+    @StateObject var viewModel = FavoriteTeamViewModel()
+//    @State private var favorite = Team(key: "WAS", city: "Washington", name: "Wizards")
     
     var body: some View {
         VStack(spacing: 10) {
@@ -19,7 +19,7 @@ struct SettingsView: View {
                 .font(.title2)
                 .fontWeight(.light)
             
-            Picker("Please choose a color", selection: $favorite) {
+            Picker("Please choose a color", selection: $viewModel.favoriteTeam) {
                 ForEach(viewModel.allTeams, id: \.self) { team in
                     Text("\(team.city) \(team.name) ")
                 }
@@ -27,11 +27,11 @@ struct SettingsView: View {
             
             
             VStack() {
-                Text("\(favorite.city) \(favorite.name)")
+                Text("\(viewModel.favoriteTeam.city) \(viewModel.favoriteTeam.name)")
                     .font(.title2)
                     .fontWeight(.bold)
                 
-                Image(favorite.key)
+                Image(viewModel.favoriteTeam.key)
                     .resizable()
                     .frame(width: 150, height: 150)
             }
