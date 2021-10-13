@@ -10,6 +10,7 @@ import Foundation
 class APIClient {
     let gamesByDateBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
     let standingsBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
+    let allTeamsBaseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
     let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
     let urlSession = URLSession.shared
     
@@ -110,6 +111,39 @@ class APIClient {
     }
     
     
+    // MARK: - All teams
+    
+    func getAllTeams(completion: @escaping (Result<[Team]>) -> () ) {
+        let fullURL = setAllTeamsParams()
+        guard let url = URL(string: fullURL) else {return}
+        let request = URLRequest(url: url)
+        
+        urlSession.dataTask(with: request) { data, responce, error in
+            if let error = error {
+                return completion(Result.failure(error))
+            }
+            
+            guard let data = data else {
+                return completion(Result.failure(EndPointError.noData))
+            }
+            
+            do {
+                let allTeams = try JSONDecoder().decode([Team].self, from: data)
+                
+                DispatchQueue.main.sync {
+                    completion(Result.success(allTeams))
+                }
+                
+            } catch {
+                completion(Result.failure(EndPointError.couldNotParse))
+                print(error)
+            }
+        }.resume()
+    }
+    
+    func setAllTeamsParams() -> String {
+        return "\(allTeamsBaseURL)?key=\(apiKey)"
+    }
     
     
 }
