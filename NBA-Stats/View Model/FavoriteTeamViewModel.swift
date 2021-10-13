@@ -19,8 +19,11 @@ class FavoriteTeamViewModel: ObservableObject {
         getAllTeams { result in
             switch result {
             case let .success(allTeams):
-                print("set all teams")
-                print(self.allTeams)
+                self.allTeams = allTeams
+                
+                // removing last 2 teams from list: not real teams
+                self.allTeams.removeLast()
+                self.allTeams.removeLast()
             case let .failure(error):
                 print(error)
             }
@@ -45,11 +48,7 @@ class FavoriteTeamViewModel: ObservableObject {
                 let allTeams = try JSONDecoder().decode([Team].self, from: data)
                 
                 DispatchQueue.main.sync {
-                    self.allTeams = allTeams
-                    
-                    // removing last 2 teams from list: not real teams
-                    self.allTeams.removeLast()
-                    self.allTeams.removeLast()
+                    completion(Result.success(allTeams))
                 }
                 
             } catch {

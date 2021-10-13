@@ -40,10 +40,8 @@ struct SettingsView: View {
             .background(Color(UIColor.systemBackground))
             .cornerRadius(20)
             .shadow(color: .gray, radius: 8, x: 0, y: 0)
-            
-            
-                
         }
+        
     }
 }
 
