@@ -15,74 +15,106 @@ class ScoresViewModel: ObservableObject {
     let baseURL = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
     let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
     let urlSession = URLSession.shared
+    let api = APIClient()
     
     init() {
-        getGamesByDate(yesterday) { result in
+        
+        api.getGamesByDate(yesterday) { result in
             switch result {
             case let .success(games):
                 print("Set yesturdays games")
+                self.yesturdaysGames = games["yesterday"]!
             case let .failure(error):
                 print(error)
             }
         }
         
-        getGamesByDate(today) { result in
+        api.getGamesByDate(today) { result in
             switch result {
             case let .success(games):
                 print("Set todays games")
+                self.todaysGames = games["today"]!
             case let .failure(error):
                 print(error)
             }
         }
-        getGamesByDate(tomorrow) { result in
+        
+        api.getGamesByDate(tomorrow) { result in
             switch result {
             case let .success(games):
                 print("Set tomorrows games")
+                self.tomorrowsGames = games["tomorrow"]!
             case let .failure(error):
                 print(error)
             }
         }
+        
+//        getGamesByDate(yesterday) { result in
+//            switch result {
+//            case let .success(games):
+//                print("Set yesturdays games")
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
+//
+//        getGamesByDate(today) { result in
+//            switch result {
+//            case let .success(games):
+//                print("Set todays games")
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
+//        getGamesByDate(tomorrow) { result in
+//            switch result {
+//            case let .success(games):
+//                print("Set tomorrows games")
+//            case let .failure(error):
+//                print(error)
+//            }
+//        }
     }
     
     /// Get games by date: You can enter "yesturday", "today", or "tomorrow"
-    func getGamesByDate(_ date: String, completion: @escaping (Result<[GameByDate]>) -> () ) {
-        let fullURL = setParameters(date: date)
-        guard let url = URL(string: fullURL) else {return}
-        let request = URLRequest(url: url)
-        
-        urlSession.dataTask(with: request) { data, responce, error in
-            if let error = error {
-                return completion(Result.failure(error))
-            }
-            
-            guard let data = data else {
-                return completion(Result.failure(EndPointError.noData))
-            }
-            
-            do {
-                let games = try JSONDecoder().decode([GameByDate].self, from: data)
-                
-                DispatchQueue.main.sync {
-                    if date == yesterday{
-                        self.yesturdaysGames = games
-                    }
-                    if date == today {
-                        self.todaysGames = games
-                    }
-                    if date == tomorrow {
-                        self.tomorrowsGames = games
-                    }
-                }
-                
-            } catch {
-                completion(Result.failure(EndPointError.couldNotParse))
-                print(error)
-            }
-        }.resume()
-    }
-    
-    
-    func setParameters(date: String) -> String {
-        return "\(baseURL)\(date)?key=\(apiKey)"
-    }
+//    func getGamesByDate(_ date: String, completion: @escaping (Result<[GameByDate]>) -> () ) {
+//        let fullURL = setParameters(date: date)
+//        guard let url = URL(string: fullURL) else {return}
+//        let request = URLRequest(url: url)
+//
+//        urlSession.dataTask(with: request) { data, responce, error in
+//            if let error = error {
+//                return completion(Result.failure(error))
+//            }
+//
+//            guard let data = data else {
+//                return completion(Result.failure(EndPointError.noData))
+//            }
+//
+//            do {
+//                let games = try JSONDecoder().decode([GameByDate].self, from: data)
+//
+//                DispatchQueue.main.sync {
+//                    if date == yesterday{
+//                        self.yesturdaysGames = games
+//                    }
+//                    if date == today {
+//                        self.todaysGames = games
+//                    }
+//                    if date == tomorrow {
+//                        self.tomorrowsGames = games
+//                    }
+//                }
+//
+//            } catch {
+//                completion(Result.failure(EndPointError.couldNotParse))
+//                print(error)
+//            }
+//        }.resume()
+//    }
+//
+//
+//    func setParameters(date: String) -> String {
+//        return "\(baseURL)\(date)?key=\(apiKey)"
+//    }
 }
