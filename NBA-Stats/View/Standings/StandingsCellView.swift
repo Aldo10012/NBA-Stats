@@ -11,6 +11,8 @@ struct StandingsCellView: View {
     
     @State var standing: Standing
     let favoritesStore = FavoriteStore()
+    @State var textColor: Color = .green
+    @State var bgColor: Color = .green
     
     var body: some View {
         HStack {
@@ -18,37 +20,30 @@ struct StandingsCellView: View {
                 .resizable()
                 .frame(width: 40, height: 40)
                 .padding(.leading)
-                
-            // if is favorite
-            if favoritesStore.isFavoriteTeam(teamKeyString: standing.key) {
-                Text("\(standing.city) \(standing.name)")
-                    .foregroundColor(Color(UIColor.black))
-                    .padding()
-                
-                Spacer()
-                
-                Text("\(standing.wins) - \(standing.losses)")
-                    .foregroundColor(Color(UIColor.black))
-                    .padding()
-            }
-            else {
-                Text("\(standing.city) \(standing.name)")
-                    .padding()
-
-                Spacer()
-                
-                Text("\(standing.wins) - \(standing.losses)")
-                    .padding()
-            }
             
+            Text("\(standing.city) \(standing.name)")
+                .foregroundColor(textColor)
+                .padding()
+            
+            Spacer()
+            
+            Text("\(standing.wins) - \(standing.losses)")
+                .foregroundColor(textColor)
+                .padding()
         }
         .frame(height: 60)
-        .background(Color(favoritesStore.isFavoriteTeam(teamKeyString: standing.key) ? UIColor.yellow : UIColor.systemBackground))
+        .background(bgColor)
         .cornerRadius(8)
         .shadow(color: Color(UIColor.lightGray), radius: 4, x: 2, y: 0)
         .padding(.horizontal)
         .onAppear {
-            
+            if favoritesStore.isFavoriteTeam(teamKeyString: standing.key) {
+                textColor = Color(UIColor.black)
+                bgColor = Color(UIColor.yellow)
+            } else {
+                textColor = Color(UIColor.label)
+                bgColor = Color(UIColor.systemBackground)
+            }
         }
     }
 }
