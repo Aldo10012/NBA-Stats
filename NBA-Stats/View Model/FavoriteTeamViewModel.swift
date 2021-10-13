@@ -51,58 +51,8 @@ class FavoriteTeamViewModel: ObservableObject {
                 print(error)
             }
         }
-        
-//        getAllTeams { result in
-//            switch result {
-//            case let .success(allTeams):
-//                self.allTeams = allTeams
-//
-//                for team in self.allTeams {
-//                    if self.store.isFavoriteTeam(teamKeyString: team.key){
-//                        self.favoriteTeam = team
-//                    }
-//                }
-//
-//                // removing last 2 teams from list: not real teams
-//                self.allTeams.removeLast()
-//                self.allTeams.removeLast()
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
     }
     
-//    func getAllTeams(completion: @escaping (Result<[Team]>) -> () ) {
-//        let fullURL = setParameters()
-//        guard let url = URL(string: fullURL) else {return}
-//        let request = URLRequest(url: url)
-//
-//        urlSession.dataTask(with: request) { data, responce, error in
-//            if let error = error {
-//                return completion(Result.failure(error))
-//            }
-//
-//            guard let data = data else {
-//                return completion(Result.failure(EndPointError.noData))
-//            }
-//
-//            do {
-//                let allTeams = try JSONDecoder().decode([Team].self, from: data)
-//
-//                DispatchQueue.main.sync {
-//                    completion(Result.success(allTeams))
-//                }
-//
-//            } catch {
-//                completion(Result.failure(EndPointError.couldNotParse))
-//                print(error)
-//            }
-//        }.resume()
-//    }
-//
-//    func setParameters() -> String {
-//        return "\(baseURL)?key=\(apiKey)"
-//    }
 }
 
 

@@ -17,7 +17,6 @@ class StandingsViewModel: ObservableObject {
     let api = APIClient()
     
     init() {
-        
         api.getStandings(Int(thisYear)!) { result in
             switch result {
             case let .success(allStandings):
@@ -28,55 +27,6 @@ class StandingsViewModel: ObservableObject {
                 print(error)
             }
         }
-        
-//        getStandings(Int(thisYear)!) { result in
-//            switch result {
-//            case let .success(allStandings):
-//                print("added standings")
-//
-//            case let .failure(error):
-//                print(error)
-//            }
-//        }
     }
     
-    /// Get games by date: You can enter "yesturday", "today", or "tomorrow"
-//    func getStandings(_ year: Int, completion: @escaping (Result<[Standing]>) -> () ) {
-//        let fullURL = setParameters(year: year)
-//        guard let url = URL(string: fullURL) else {return}
-//        let request = URLRequest(url: url)
-//        
-//        urlSession.dataTask(with: request) { data, responce, error in
-//            if let error = error {
-//                return completion(Result.failure(error))
-//            }
-//            
-//            guard let data = data else {
-//                return completion(Result.failure(EndPointError.noData))
-//            }
-//            
-//            do {
-//                let allStandings = try JSONDecoder().decode([Standing].self, from: data)
-//                
-//                DispatchQueue.main.sync {
-//                    for standing in allStandings {
-//                        if standing.conference == "Eastern" {
-//                            self.easternStandings.append(standing)
-//                        } else {
-//                            self.westernStandings.append(standing)
-//                        }
-//                    }
-//                }
-//                
-//            } catch {
-//                completion(Result.failure(EndPointError.couldNotParse))
-//                print(error)
-//            }
-//        }.resume()
-//    }
-//    
-//    
-//    func setParameters(year: Int) -> String {
-//        return "\(baseURL)\(year)?key=\(apiKey)"
-//    }
 }
