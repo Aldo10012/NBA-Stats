@@ -33,7 +33,7 @@ struct ScoresCardView: View {
         .padding(.horizontal, 35)
         .background(Color(UIColor.systemBackground))
         .cornerRadius(20)
-        .shadow(color: .gray, radius: 8, x: 4, y: 2)
+        .shadow(color: .gray, radius: 8, x: 2, y: 2)
         .onAppear {
 //            print(game)
         }

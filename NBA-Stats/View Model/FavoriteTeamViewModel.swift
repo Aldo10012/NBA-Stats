@@ -25,6 +25,7 @@ class FavoriteStore {
 class FavoriteTeamViewModel: ObservableObject {
     @Published var allTeams = [Team]()
     @Published var favoriteTeam: Team = Team(key: "WAS", city: "Washington", name: "Wizards")
+    var store = FavoriteStore()
         
     let baseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
     let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
@@ -35,6 +36,12 @@ class FavoriteTeamViewModel: ObservableObject {
             switch result {
             case let .success(allTeams):
                 self.allTeams = allTeams
+                
+                for team in self.allTeams {
+                    if self.store.isFavoriteTeam(teamKeyString: team.key){
+                        self.favoriteTeam = team
+                    }
+                }
                 
                 // removing last 2 teams from list: not real teams
                 self.allTeams.removeLast()
