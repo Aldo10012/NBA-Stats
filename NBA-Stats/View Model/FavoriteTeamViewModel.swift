@@ -7,6 +7,21 @@
 
 import UIKit
 
+class FavoriteStore {
+    
+    var store = UserDefaults.standard
+    
+    func setFavorite(teamKeyString: String) {
+        store.set(teamKeyString, forKey: "favoriteTeam")
+    }
+    
+    func isFavoriteTeam(teamKeyString: String) -> Bool {
+        return teamKeyString == store.string(forKey: "favoriteTeam")
+    }
+}
+
+
+
 class FavoriteTeamViewModel: ObservableObject {
     @Published var allTeams = [Team]()
     @Published var favoriteTeam: Team = Team(key: "WAS", city: "Washington", name: "Wizards")

@@ -10,28 +10,45 @@ import SwiftUI
 struct StandingsCellView: View {
     
     @State var standing: Standing
+    let favoritesStore = FavoriteStore()
     
     var body: some View {
         HStack {
             Image(standing.key)
                 .resizable()
                 .frame(width: 40, height: 40)
-//                .background(Color(UIColor.lightGray))
                 .padding(.leading)
                 
-            Text("\(standing.city) \(standing.name)")
-                .padding()
-            Spacer()
-            Text("\(standing.wins) - \(standing.losses)")
-                .padding()
+            // if is favorite
+            if favoritesStore.isFavoriteTeam(teamKeyString: standing.key) {
+                Text("\(standing.city) \(standing.name)")
+                    .foregroundColor(Color(UIColor.black))
+                    .padding()
+                
+                Spacer()
+                
+                Text("\(standing.wins) - \(standing.losses)")
+                    .foregroundColor(Color(UIColor.black))
+                    .padding()
+            }
+            else {
+                Text("\(standing.city) \(standing.name)")
+                    .padding()
+
+                Spacer()
+                
+                Text("\(standing.wins) - \(standing.losses)")
+                    .padding()
+            }
+            
         }
         .frame(height: 60)
-        .background(Color(UIColor.systemBackground))
+        .background(Color(favoritesStore.isFavoriteTeam(teamKeyString: standing.key) ? UIColor.yellow : UIColor.systemBackground))
         .cornerRadius(8)
         .shadow(color: Color(UIColor.lightGray), radius: 4, x: 2, y: 0)
         .padding(.horizontal)
         .onAppear {
-//            print(standing)
+            
         }
     }
 }

@@ -17,7 +17,7 @@ Team losses
 */
 
 struct Standing: Codable, Identifiable {
-    var id = UUID()
+    var id: String { return self.key}      //  = UUID()
     
     var key: String  { didSet {logo = setTeamLogo(from: key)} }
     let city: String

@@ -10,6 +10,7 @@ import SwiftUI
 struct SettingsView: View {
     
     @StateObject var viewModel = FavoriteTeamViewModel()
+    let store = FavoriteStore()
 //    @State private var favorite = Team(key: "WAS", city: "Washington", name: "Wizards")
     
     var body: some View {
@@ -24,6 +25,9 @@ struct SettingsView: View {
                     Text("\(team.city) \(team.name) ")
                 }
             }.pickerStyle(.inline)
+            .onChange(of: viewModel.favoriteTeam) { newValue in
+                store.setFavorite(teamKeyString: viewModel.favoriteTeam.key)
+            }
             
             
             VStack() {
