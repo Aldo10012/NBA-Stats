@@ -8,8 +8,11 @@
 import SwiftUI
 
 struct SettingsView: View {
+    
+    @ObservedObject var viewModel = FavoriteTeamViewModel()
+    
     var body: some View {
-        Text("Settings View")
+        Text("Hello world")
     }
 }
 

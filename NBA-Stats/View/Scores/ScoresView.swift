@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ScoresView: View {
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .red
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    }
+    
     @ObservedObject var viewModel = ScoresViewModel()
     @State private var selectedDate: SelectedDate = .today
     

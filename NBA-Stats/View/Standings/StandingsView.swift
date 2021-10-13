@@ -9,6 +9,11 @@ import SwiftUI
 
 struct StandingsView: View {
     
+    init() {
+        UISegmentedControl.appearance().selectedSegmentTintColor = .red
+        UISegmentedControl.appearance().setTitleTextAttributes([.foregroundColor: UIColor.white], for: .selected)
+    }
+    
     @ObservedObject var viewModel = StandingsViewModel()
     @State private var selectedConference: SelectedConference = .western 
     
