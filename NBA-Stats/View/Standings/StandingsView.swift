@@ -28,9 +28,9 @@ struct StandingsView: View {
                 .pickerStyle(SegmentedPickerStyle())
                 .padding()
                                 
-                HStack() {
+                HStack(spacing: 16) {
                     Text("#")
-                        .padding(.leading, 20)
+                        .padding(.leading, 16)
                     Text("Team")
                     Spacer()
                     Text("W  -  L")

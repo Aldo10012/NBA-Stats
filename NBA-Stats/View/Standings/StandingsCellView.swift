@@ -15,21 +15,23 @@ struct StandingsCellView: View {
     @State var bgColor: Color = .green
     
     var body: some View {
-        HStack {
+        HStack(spacing: 16) {
+            Text("\(standing.ranking)")
+                .foregroundColor(textColor)
+                .padding(.leading)
+            
             Image(standing.key)
                 .resizable()
                 .frame(width: 40, height: 40)
-                .padding(.leading)
             
             Text("\(standing.city) \(standing.name)")
                 .foregroundColor(textColor)
-                .padding()
             
             Spacer()
             
             Text("\(standing.wins) - \(standing.losses)")
                 .foregroundColor(textColor)
-                .padding()
+                .padding(.trailing)
         }
         .frame(height: 60)
         .background(bgColor)
@@ -54,4 +56,4 @@ struct StandingsCellView_Previews: PreviewProvider {
     }
 }
 
-let sampleStanding = Standing(key: "NY", city: "New York", name: "Knicks", wins: 20, losses: 25, conference: "Eastern")
+let sampleStanding = Standing(key: "NY", city: "New York", name: "Knicks", wins: 20, losses: 25, percentage: 0.52, ranking: 1, conference: "Eastern")
