@@ -12,9 +12,6 @@ class ScoresViewModel: ObservableObject {
     @Published var todaysGames = [GameByDate]()
     @Published var tomorrowsGames = [GameByDate]()
     
-    let baseURL = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
-    let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
-    let urlSession = URLSession.shared
     let api = APIClient()
     
     init() {

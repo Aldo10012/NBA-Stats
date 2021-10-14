@@ -10,28 +10,59 @@ import SwiftUI
 struct StandingInfoView: View {
     
     @State var standing: Standing
+    @ObservedObject var viewModel = StandingInfoViewModel()
     
     
     var body: some View {
-        VStack {
-            StandingInfoHeaderView(standing: standing)
-            
-            StandingInfoRowView(labelOne: "Conference\nWins", detailOne: standing.conferenceWins,
-                                labelTwo: "Conference\nLosses", detailTwo: standing.conferenceLosses,
-                                labelThree: "Conference\nWin Rate")
+        ScrollView {
+            VStack(spacing: 15) {
+                StandingInfoHeaderView(standing: standing)
+                
+                StandingInfoRowView(labelOne: "Conference\nWins", detailOne: standing.conferenceWins,
+                                    labelTwo: "Conference\nLosses", detailTwo: standing.conferenceLosses,
+                                    labelThree: "Conference\nWin Rate")
+                            
+                StandingInfoRowView(labelOne: "Home\nWins", detailOne: standing.homeWins,
+                                    labelTwo: "Home\nLosses", detailTwo: standing.homeLosses,
+                                    labelThree: "Home\nWin Rate")
+                
+                StandingInfoRowView(labelOne: "Away\nWins", detailOne: standing.awayWins,
+                                    labelTwo: "Away\nLosses", detailTwo: standing.awayLosses,
+                                    labelThree: "Away\nWin Rate")
+                
+                VStack(spacing: 20) {
+                    
+                    Text("Players")
+                        .font(.title3)
+                        .fontWeight(.semibold)
+                        .padding(.vertical, 10)
                         
-            StandingInfoRowView(labelOne: "Home\nWins", detailOne: standing.homeWins,
-                                labelTwo: "Home\nLosses", detailTwo: standing.homeLosses,
-                                labelThree: "Home\nWin Rate")
-            
-            StandingInfoRowView(labelOne: "Away\nWins", detailOne: standing.awayWins,
-                                labelTwo: "Away\nLosses", detailTwo: standing.awayLosses,
-                                labelThree: "Away\nWin Rate")
-            
-            
-            
-            
-            Spacer()
+                    
+                    HStack(alignment: .top ,spacing: 25) {
+                        VStack(spacing: 10) {
+                            ForEach (viewModel.firstHalf) { player in
+                                Text(player.firstName + player.lastName)
+                            }
+                        }.frame(maxWidth: .infinity)
+                        
+                        VStack(spacing: 10) {
+                            ForEach (viewModel.secondHalf) { player in
+                                Text(player.firstName + " " + player.lastName)
+                            }
+                        }.frame(maxWidth: .infinity)
+                    }
+                    
+                }
+                .padding(16)
+                .frame(width: UIScreen.main.bounds.size.width-32)
+                .foregroundColor(Color(UIColor.label))
+                .background(Color("OffColor"))
+                .cornerRadius(16)
+                
+                Spacer()
+            }.onAppear {
+                viewModel.getTeam(teamKeyString: standing.key)
+        }
         }
     }
 }

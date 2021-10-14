@@ -27,9 +27,6 @@ class FavoriteTeamViewModel: ObservableObject {
     @Published var favoriteTeam: Team = Team(key: "WAS", city: "Washington", name: "Wizards")
     var store = FavoriteStore()
         
-    let baseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
-    let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
-    let urlSession = URLSession.shared
     let api = APIClient()
     
     init() {

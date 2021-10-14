@@ -11,6 +11,7 @@ class APIClient {
     let gamesByDateBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
     let standingsBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
     let allTeamsBaseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
+    let allPlayersBaseURL = "https://api.sportsdata.io/nba/v2/json/Players/"
     let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
     let urlSession = URLSession.shared
     
@@ -146,4 +147,37 @@ class APIClient {
     }
     
     
+    // MARK: - Players
+    
+    func getAllPlayers(from team: String, completion: @escaping (Result<[Player]>) -> () ) {
+        let fullURL = setAllPlayersParams(teamKey: team)
+        guard let url = URL(string: fullURL) else {return}
+        let request = URLRequest(url: url)
+        
+        urlSession.dataTask(with: request) { data, responce, error in
+            if let error = error {
+                return completion(Result.failure(error))
+            }
+            
+            guard let data = data else {
+                return completion(Result.failure(EndPointError.noData))
+            }
+            
+            do {
+                let allPlayers = try JSONDecoder().decode([Player].self, from: data)
+                
+                DispatchQueue.main.sync {
+                    completion(Result.success(allPlayers))
+                }
+                
+            } catch {
+                completion(Result.failure(EndPointError.couldNotParse))
+                print(error)
+            }
+        }.resume()
+    }
+    
+    func setAllPlayersParams(teamKey: String) -> String {
+        return "\(allPlayersBaseURL)\(teamKey)?key=\(apiKey)"
+    }
 }

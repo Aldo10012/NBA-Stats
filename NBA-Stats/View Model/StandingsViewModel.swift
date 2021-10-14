@@ -11,9 +11,6 @@ class StandingsViewModel: ObservableObject {
     @Published var westernStandings = [Standing]()
     @Published var easternStandings = [Standing]()
     
-    let baseURL = "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
-    let apiKey = "fe9f2cb9842e40ec8c761e78ecc2c58f"
-    let urlSession = URLSession.shared
     let api = APIClient()
     
     init() {
