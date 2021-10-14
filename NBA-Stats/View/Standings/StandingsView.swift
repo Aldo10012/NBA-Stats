@@ -45,11 +45,21 @@ struct StandingsView: View {
                         switch selectedConference {
                         case .western:
                             ForEach(viewModel.westernStandings) { standing in
-                                StandingsCellView(standing: standing)
+                                NavigationLink {
+                                    StandingInfoView(standing: standing)
+                                } label: {
+                                    StandingsCellView(standing: standing)
+                                }
                             }
                         case .eastern:
                             ForEach(viewModel.easternStandings) { standing in
-                                StandingsCellView(standing: standing)
+                                
+                                NavigationLink {
+                                    StandingInfoView(standing: standing)
+                                } label: {
+                                    StandingsCellView(standing: standing)
+                                }
+                                
                             }
                         }
                     }.padding(.top, 10)

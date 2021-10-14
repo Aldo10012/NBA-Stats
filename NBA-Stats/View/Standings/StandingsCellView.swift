@@ -56,4 +56,19 @@ struct StandingsCellView_Previews: PreviewProvider {
     }
 }
 
-let sampleStanding = Standing(key: "NY", city: "New York", name: "Knicks", wins: 20, losses: 25, percentage: 0.52, ranking: 1, conference: "Eastern")
+let sampleStanding = Standing(
+    key: "NY",
+    city: "New York",
+    name: "Knicks",
+    wins: 20,
+    losses: 25,
+    percentage: 0.52,
+    ranking: 1,
+    conference: "Eastern",
+    conferenceWins: 10,
+    conferenceLosses: 12,
+    homeWins: 10,
+    homeLosses: 12,
+    awayWins: 10,
+    awayLosses: 12
+)

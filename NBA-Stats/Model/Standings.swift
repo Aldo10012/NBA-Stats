@@ -30,6 +30,13 @@ struct Standing: Codable, Identifiable {
     var ranking: Int = 0
     let conference: String
     
+    let conferenceWins: Int
+    let conferenceLosses: Int
+    let homeWins: Int
+    let homeLosses: Int
+    let awayWins: Int
+    let awayLosses: Int
+    
     enum CodingKeys: String, CodingKey {
 //        case ranking
         case key = "Key"
@@ -39,6 +46,14 @@ struct Standing: Codable, Identifiable {
         case losses = "Losses"
         case conference = "Conference"
         case percentage = "Percentage"
+        
+        case conferenceWins = "ConferenceWins"
+        case conferenceLosses = "ConferenceLosses"
+        case homeWins = "HomeWins"
+        case homeLosses = "HomeLosses"
+        case awayWins = "AwayWins"
+        case awayLosses = "AwayLosses"
+        
     }
 }
 
