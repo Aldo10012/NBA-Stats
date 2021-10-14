@@ -34,6 +34,7 @@ struct GameByDate: Codable, Identifiable {
     let awayTeamScore: Int?
     
     let status: String
+    var dateTime: String
     
     enum CodingKeys: String, CodingKey {
 //        case homeTeamLogo, awayTeamLogo
@@ -42,6 +43,7 @@ struct GameByDate: Codable, Identifiable {
         case awayTeam       = "AwayTeam"
         case awayTeamScore  = "AwayTeamScore"
         case status         = "Status"
+        case dateTime       = "DateTime"
     }
     
 }

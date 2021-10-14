@@ -26,8 +26,13 @@ struct ScoresCardView: View {
                               score: game.awayTeamScore
                 )
             }
-            
-            Text(game.status)
+            switch game.status {
+            case "Final":     Text(game.status)
+            case "Canceled":  Text(game.status)
+            case "Scheduled": Text("\(game.status) @ \(game.dateTime)")
+            default:
+                Text(game.status)
+            }
         }
         .padding(.vertical, 20)
         .padding(.horizontal, 35)
@@ -35,7 +40,8 @@ struct ScoresCardView: View {
         .cornerRadius(20)
         .shadow(color: .gray, radius: 8, x: 2, y: 2)
         .onAppear {
-//            print(game)
+            
+            
         }
         
     }
