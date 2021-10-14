@@ -38,16 +38,18 @@ struct StandingInfoView: View {
                         .padding(.vertical, 10)
                         
                     
-                    HStack(alignment: .top ,spacing: 25) {
+                    HStack(alignment: .top) {
                         VStack(spacing: 10) {
                             ForEach (viewModel.firstHalf) { player in
                                 Text(player.firstName + player.lastName)
+                                    .multilineTextAlignment(.center)
                             }
                         }.frame(maxWidth: .infinity)
                         
                         VStack(spacing: 10) {
                             ForEach (viewModel.secondHalf) { player in
                                 Text(player.firstName + " " + player.lastName)
+                                    .multilineTextAlignment(.center)
                             }
                         }.frame(maxWidth: .infinity)
                     }
