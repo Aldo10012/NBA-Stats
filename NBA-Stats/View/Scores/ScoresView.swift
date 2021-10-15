@@ -33,17 +33,35 @@ struct ScoresView: View {
                     LazyVStack(spacing: 20) {
                         switch selectedDate {
                         case .yesturday:
-                            ForEach(viewModel.yesturdaysGames) { game in
-                                ScoresCardView(game: game)
+                            if viewModel.yesturdaysGames.count != 0 {
+                                ForEach(viewModel.yesturdaysGames) { game in
+                                    ScoresCardView(game: game)
+                                }
+                            } else {
+                                Text("No games today")
                             }
+                            
+                            
                         case .today:
-                            ForEach(viewModel.todaysGames) { game in
-                                ScoresCardView(game: game)
+                            if viewModel.todaysGames.count != 0 {
+                                ForEach(viewModel.todaysGames) { game in
+                                    ScoresCardView(game: game)
+                                }
+                            } else {
+                                Text("No games today")
                             }
+                            
+                            
                         case .tomorrow:
-                            ForEach(viewModel.tomorrowsGames) { game in
-                                ScoresCardView(game: game)
+                            if viewModel.tomorrowsGames.count != 0 {
+                                ForEach(viewModel.tomorrowsGames) { game in
+                                    ScoresCardView(game: game)
+                                }
+                            } else {
+                                Text("No games today")
                             }
+                            
+                            
                         }
                     }.padding(.top, 10)
                 }
