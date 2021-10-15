@@ -8,7 +8,7 @@
 import Foundation
 
 class ScoresViewModel: ObservableObject {
-    @Published var yesturdaysGames = [GameByDate]()
+    @Published var yesterdaysGames = [GameByDate]()
     @Published var todaysGames = [GameByDate]()
     @Published var tomorrowsGames = [GameByDate]()
     
@@ -18,11 +18,11 @@ class ScoresViewModel: ObservableObject {
         api.getGamesByDate(yesterday) { result in
             switch result {
             case let .success(games):
-                print("Set yesturdays games")
-                self.yesturdaysGames = games["yesterday"]!
+                print("Set yesterdays games")
+                self.yesterdaysGames = games["yesterday"]!
                 
-                for i in 0..<self.yesturdaysGames.count {
-                    self.yesturdaysGames[i].dateTime = self.fixTimeLabel(self.yesturdaysGames[i].dateTime)
+                for i in 0..<self.yesterdaysGames.count {
+                    self.yesterdaysGames[i].dateTime = self.fixTimeLabel(self.yesterdaysGames[i].dateTime)
                 }
                 
             case let .failure(error):

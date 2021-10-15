@@ -32,9 +32,9 @@ struct ScoresView: View {
                 ScrollView {
                     LazyVStack(spacing: 20) {
                         switch selectedDate {
-                        case .yesturday:
-                            if viewModel.yesturdaysGames.count != 0 {
-                                ForEach(viewModel.yesturdaysGames) { game in
+                        case .yesterday:
+                            if viewModel.yesterdaysGames.count != 0 {
+                                ForEach(viewModel.yesterdaysGames) { game in
                                     ScoresCardView(game: game)
                                 }
                             } else {
@@ -81,7 +81,7 @@ struct ContentView_Previews: PreviewProvider {
 
 
 enum SelectedDate: String, CaseIterable {
-    case yesturday = "Yesturday"
+    case yesterday = "Yesterday"
     case today = "Today"
     case tomorrow = "Tomorrow"
 }

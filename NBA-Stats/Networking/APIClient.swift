@@ -17,7 +17,7 @@ class APIClient {
     
     //MARK: - GamesByDate
 
-    /// Get games by date: You can enter "yesturday", "today", or "tomorrow"
+    /// Get games by date: You can enter "yesterday", "today", or "tomorrow"
     func getGamesByDate(_ date: String, completion: @escaping (Result<[String: [GameByDate] ]>) -> () ) {
         let fullURL = setGamesByDateParams(date: date)
         guard let url = URL(string: fullURL) else {return}
@@ -64,7 +64,7 @@ class APIClient {
     
     // MARK: - Standings
     
-    /// Get games by date: You can enter "yesturday", "today", or "tomorrow"
+    /// Get games by date: You can enter "yesterday", "today", or "tomorrow"
     func getStandings(_ year: Int, completion: @escaping (Result<[String: [Standing]]>) -> () ) {
         let fullURL = setStandingsParams(year: year)
         guard let url = URL(string: fullURL) else {return}
