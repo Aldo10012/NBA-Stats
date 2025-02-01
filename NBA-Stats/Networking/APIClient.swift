@@ -8,11 +8,24 @@
 import Foundation
 import EZNetworking
 
-enum Endpoint: String {
-    case gamesByDateBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
-    case standingsBaseURL = "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
-    case allTeamsBaseURL = "https://api.sportsdata.io/nba/v2/json/AllTeams"
-    case allPlayersBaseURL = "https://api.sportsdata.io/nba/v2/json/Players/"
+enum APIEndpoint {
+    case gamesByDateBaseURL
+    case standingsBaseURL
+    case allTeamsBaseURL
+    case allPlayersBaseURL
+    
+    var url: String {
+        return switch self {
+        case .gamesByDateBaseURL:
+            "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
+        case .standingsBaseURL:
+            "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
+        case .allTeamsBaseURL:
+            "https://api.sportsdata.io/nba/v2/json/AllTeams"
+        case .allPlayersBaseURL:
+            "https://api.sportsdata.io/nba/v2/json/Players/"
+        }
+    }
 }
 
 class APIClient {
@@ -26,7 +39,7 @@ class APIClient {
     func getGamesByDate(_ date: String, completion: @escaping (Result<[String: [GameByDate] ]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(Endpoint.gamesByDateBaseURL.rawValue)\(date)",
+                   baseUrlString: "\(APIEndpoint.gamesByDateBaseURL.url)\(date)",
                    parameters: [.init(key: "key", value: apiKey)]
             )
         
@@ -59,7 +72,7 @@ class APIClient {
     func getStandings(_ year: Int, completion: @escaping (Result<[String: [Standing]]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(Endpoint.standingsBaseURL.rawValue)\(year)",
+                   baseUrlString: "\(APIEndpoint.standingsBaseURL.url)\(year)",
                    parameters: [.init(key: "key", value: apiKey)]
             )
         
@@ -96,7 +109,7 @@ class APIClient {
     func getAllTeams(completion: @escaping (Result<[Team]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(Endpoint.allTeamsBaseURL.rawValue)",
+                   baseUrlString: "\(APIEndpoint.allTeamsBaseURL.url)",
                    parameters: [.init(key: "key", value: apiKey)]
             )
         
@@ -120,7 +133,7 @@ class APIClient {
     func getAllPlayers(from team: String, completion: @escaping (Result<[Player]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(Endpoint.allPlayersBaseURL.rawValue)\(team)",
+                   baseUrlString: "\(APIEndpoint.allPlayersBaseURL.url)\(team)",
                    parameters: [.init(key: "key", value: apiKey)]
             )
         
