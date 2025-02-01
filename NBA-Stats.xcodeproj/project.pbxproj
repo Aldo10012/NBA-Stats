@@ -27,6 +27,7 @@
 		639EC1C82718B138007A15A4 /* StandingInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639EC1C72718B138007A15A4 /* StandingInfoView.swift */; };
 		639EC1CA2718C889007A15A4 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639EC1C92718C889007A15A4 /* Player.swift */; };
 		639EC1CC2718C9D9007A15A4 /* StandingInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639EC1CB2718C9D9007A15A4 /* StandingInfoViewModel.swift */; };
+		63D413CD2D4E231400F2D3C8 /* EZNetworking in Frameworks */ = {isa = PBXBuildFile; productRef = 63D413CC2D4E231400F2D3C8 /* EZNetworking */; };
 		63F87AF927174641001EF662 /* FavoriteTeamViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F87AF827174641001EF662 /* FavoriteTeamViewModel.swift */; };
 		63F87AFB27175659001EF662 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F87AFA27175659001EF662 /* Team.swift */; };
 		63F87AFD27179DD1001EF662 /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F87AFC27179DD1001EF662 /* APIClient.swift */; };
@@ -64,6 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				63D413CD2D4E231400F2D3C8 /* EZNetworking in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -232,6 +234,9 @@
 				Base,
 			);
 			mainGroup = 637772B727149BF200E417B3;
+			packageReferences = (
+				63D413CB2D4E231400F2D3C8 /* XCRemoteSwiftPackageReference "EZNetworking" */,
+			);
 			productRefGroup = 637772C127149BF200E417B3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -409,6 +414,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NBA-Stats/Preview Content\"";
+				DEVELOPMENT_TEAM = BS4YM2JJ65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -416,7 +422,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -438,6 +444,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"NBA-Stats/Preview Content\"";
+				DEVELOPMENT_TEAM = BS4YM2JJ65;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -445,7 +452,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.6;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -481,6 +488,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		63D413CB2D4E231400F2D3C8 /* XCRemoteSwiftPackageReference "EZNetworking" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Aldo10012/EZNetworking.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.7.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		63D413CC2D4E231400F2D3C8 /* EZNetworking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 63D413CB2D4E231400F2D3C8 /* XCRemoteSwiftPackageReference "EZNetworking" */;
+			productName = EZNetworking;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 637772B827149BF200E417B3 /* Project object */;
 }

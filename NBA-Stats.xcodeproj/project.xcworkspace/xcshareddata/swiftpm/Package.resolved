@@ -1,0 +1,15 @@
+{
+  "originHash" : "e2371cf61e0aadd57f53820da6066be16a4c8f499415b19f1ec0bdf5621f0c6f",
+  "pins" : [
+    {
+      "identity" : "eznetworking",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/Aldo10012/EZNetworking.git",
+      "state" : {
+        "revision" : "b30a662227a5bcfd259de70715958dfd2538c980",
+        "version" : "2.7.0"
+      }
+    }
+  ],
+  "version" : 3
+}
