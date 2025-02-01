@@ -9,21 +9,21 @@ import Foundation
 import EZNetworking
 
 enum APIEndpoint {
-    case gamesByDateBaseURL
-    case standingsBaseURL
+    case gamesByDateBaseURL(String)
+    case standingsBaseURL(Int)
     case allTeamsBaseURL
-    case allPlayersBaseURL
+    case allPlayersBaseURL(String)
     
     var url: String {
         return switch self {
-        case .gamesByDateBaseURL:
-            "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/"
-        case .standingsBaseURL:
-            "https://api.sportsdata.io/v3/nba/scores/json/Standings/"
+        case .gamesByDateBaseURL(let date):
+            "https://api.sportsdata.io/v3/nba/scores/json/GamesByDate/\(date)"
+        case .standingsBaseURL(let year):
+            "https://api.sportsdata.io/v3/nba/scores/json/Standings/\(year)"
         case .allTeamsBaseURL:
             "https://api.sportsdata.io/nba/v2/json/AllTeams"
-        case .allPlayersBaseURL:
-            "https://api.sportsdata.io/nba/v2/json/Players/"
+        case .allPlayersBaseURL(let team):
+            "https://api.sportsdata.io/nba/v2/json/Players/\(team)"
         }
     }
 }
@@ -39,9 +39,8 @@ class APIClient {
     func getGamesByDate(_ date: String, completion: @escaping (Result<[String: [GameByDate] ]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(APIEndpoint.gamesByDateBaseURL.url)\(date)",
-                   parameters: [.init(key: "key", value: apiKey)]
-            )
+                   baseUrlString: APIEndpoint.gamesByDateBaseURL(date).url,
+                   parameters: [.init(key: "key", value: apiKey)])
         
         performer.performTask(request: request, decodeTo: [GameByDate].self) { result in
             switch result {
@@ -72,9 +71,8 @@ class APIClient {
     func getStandings(_ year: Int, completion: @escaping (Result<[String: [Standing]]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(APIEndpoint.standingsBaseURL.url)\(year)",
-                   parameters: [.init(key: "key", value: apiKey)]
-            )
+                   baseUrlString: APIEndpoint.standingsBaseURL(year).url,
+                   parameters: [.init(key: "key", value: apiKey)])
         
         performer.performTask(request: request, decodeTo: [Standing].self) { result in
             switch result {
@@ -109,9 +107,8 @@ class APIClient {
     func getAllTeams(completion: @escaping (Result<[Team]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(APIEndpoint.allTeamsBaseURL.url)",
-                   parameters: [.init(key: "key", value: apiKey)]
-            )
+                   baseUrlString: APIEndpoint.allTeamsBaseURL.url,
+                   parameters: [.init(key: "key", value: apiKey)])
         
         performer.performTask(request: request, decodeTo: [Team].self) { result in
             switch result {
@@ -133,9 +130,8 @@ class APIClient {
     func getAllPlayers(from team: String, completion: @escaping (Result<[Player]>) -> () ) {
         let request = RequestFactoryImpl()
             .build(httpMethod: .GET,
-                   baseUrlString: "\(APIEndpoint.allPlayersBaseURL.url)\(team)",
-                   parameters: [.init(key: "key", value: apiKey)]
-            )
+                   baseUrlString: APIEndpoint.allPlayersBaseURL(team).url,
+                   parameters: [.init(key: "key", value: apiKey)])
         
         performer.performTask(request: request, decodeTo: [Player].self) { result in
             switch result {
